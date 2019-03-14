@@ -1,0 +1,53 @@
+"""
+>>> conversion = Conversor('Gal-a-Onza',1)
+>>> conversion.RealizarConversion()
+>>> conversion.getResultadoConversion()
+128
+
+
+>>> conversion = Conversor('Onza-a-Gal',128)
+>>> conversion.RealizarConversion()
+>>> conversion.getResultadoConversion()
+1.0
+"""
+class Conversor:
+    __unidad = float(0)
+    __resultadoConversion = float(0)
+    __conversion = ''
+
+    """
+    Método constructor con la lectura de un solo valor
+    """
+    def __init__(self, conversion, unidad):
+        self.__conversion = conversion
+        self.__unidad = unidad
+
+    def RealizarConversion(self):
+        if(self.__conversion == 'Gal-a-Onza'):
+            self.__resultadoConversion = self.__unidad*128
+        elif(self.__conversion == 'Onza-a-Gal'):
+            self.__resultadoConversion = self.__unidad/128
+        else:
+            self.__resultadoConversion = 'Invalido'
+
+            """
+            Método donde se realiza la convercion de Galones a Onzas
+            """
+
+    def getResultadoConversion(self):
+        return self.__resultadoConversion
+    """
+    Método donde se obtiene la conversion obtenida
+    """
+    def getUnidad(self):
+        return self.__unidad
+
+
+
+if __name__== '__main__':
+	import doctest
+	doctest.testmod()
+
+"""
+Prueba unitaria   
+"""
